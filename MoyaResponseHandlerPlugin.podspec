@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'MoyaResponseHandlerPlugin'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of MoyaResponseHandlerPlugin.'
+  s.summary          = 'Quick to configure Moya plugin to handle API responses for mobile app.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,25 +18,18 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+When building iOS apps, you need to handle the response from an API call. Maybe the response was successful. Maybe it failed because the user's Internet connection is bad. Maybe the status code was a 403 error. Maybe Moya failed parsing the response body to JSON. No matter what the case is, writing the code to handle these responses require a lot of boilerplate. With the help of Moya making it easy to work with networking calls, this plugin makes it very quick and easy to configure how your app will handle Moya network call responses.
                        DESC
 
-  s.homepage         = 'https://github.com/Levi Bostian/MoyaResponseHandlerPlugin'
+  s.homepage         = 'https://github.com/levibostian/MoyaResponseHandlerPlugin'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Levi Bostian' => 'levi.bostian@gmail.com' }
-  s.source           = { :git => 'https://github.com/Levi Bostian/MoyaResponseHandlerPlugin.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/levibostian/MoyaResponseHandlerPlugin.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/levibostian'
 
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'MoyaResponseHandlerPlugin/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'MoyaResponseHandlerPlugin' => ['MoyaResponseHandlerPlugin/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'Moya', '~> 8.0.5'
 end

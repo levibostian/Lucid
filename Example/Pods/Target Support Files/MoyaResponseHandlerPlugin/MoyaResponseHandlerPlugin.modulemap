@@ -1,0 +1,6 @@
+framework module MoyaResponseHandlerPlugin {
+  umbrella header "MoyaResponseHandlerPlugin-umbrella.h"
+
+  export *
+  module * { export * }
+}

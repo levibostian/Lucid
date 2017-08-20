@@ -1,0 +1,6 @@
+framework module Pods_MoyaResponseHandlerPlugin_Example {
+  umbrella header "Pods-MoyaResponseHandlerPlugin_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
