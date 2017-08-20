@@ -1,7 +1,15 @@
 PODS:
-  - MoyaResponseHandlerPlugin (0.1.0)
+  - Alamofire (4.5.0)
+  - Moya (8.0.5):
+    - Moya/Core (= 8.0.5)
+  - Moya/Core (8.0.5):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
+  - MoyaResponseHandlerPlugin (0.1.0):
+    - Moya (~> 8.0.5)
   - Nimble (5.1.1)
   - Quick (1.0.0)
+  - Result (3.2.3)
 
 DEPENDENCIES:
   - MoyaResponseHandlerPlugin (from `../`)
@@ -13,9 +21,12 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  MoyaResponseHandlerPlugin: c7f14fb8401d33e52814ebbb4ec12e54f24a5fc5
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
+  MoyaResponseHandlerPlugin: a1a633a74a1703f2791284478229ef238411c670
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
+  Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
 
 PODFILE CHECKSUM: fce849dd9cd718b1f6a124c075c59a9bfdb02364
 
