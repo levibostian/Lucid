@@ -28,8 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		34CA032BC288CD948E71471D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		40F994706ACB6B4495F69E52 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		34CA032BC288CD948E71471D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		40F994706ACB6B4495F69E52 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		529AB83339599AAFFD175A16 /* Pods_MoyaResponseHandlerPlugin_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaResponseHandlerPlugin_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* MoyaResponseHandlerPlugin_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoyaResponseHandlerPlugin_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,7 +45,7 @@
 		BF256BE042194FC57364F720 /* Pods-MoyaResponseHandlerPlugin_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaResponseHandlerPlugin_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoyaResponseHandlerPlugin_Example/Pods-MoyaResponseHandlerPlugin_Example.release.xcconfig"; sourceTree = "<group>"; };
 		D67756355070107EAA111424 /* Pods-MoyaResponseHandlerPlugin_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaResponseHandlerPlugin_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoyaResponseHandlerPlugin_Tests/Pods-MoyaResponseHandlerPlugin_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		EB749B7B38B56E089045E974 /* Pods_MoyaResponseHandlerPlugin_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaResponseHandlerPlugin_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F74D571FC84004DEC3E3697F /* MoyaResponseHandlerPlugin.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = MoyaResponseHandlerPlugin.podspec; path = ../MoyaResponseHandlerPlugin.podspec; sourceTree = "<group>"; };
+		F74D571FC84004DEC3E3697F /* MoyaResponseHandlerPlugin.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MoyaResponseHandlerPlugin.podspec; path = ../MoyaResponseHandlerPlugin.podspec; sourceTree = "<group>"; };
 		F966DF0CB0667BCCE5AEF055 /* Pods-MoyaResponseHandlerPlugin_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaResponseHandlerPlugin_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoyaResponseHandlerPlugin_Example/Pods-MoyaResponseHandlerPlugin_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,6 +215,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 6FUGF49KXB;
 						LastSwiftMigration = 0820;
 					};
 					607FACE41AFB9204008FA782 = {
@@ -496,10 +497,11 @@
 			baseConfigurationReference = F966DF0CB0667BCCE5AEF055 /* Pods-MoyaResponseHandlerPlugin_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6FUGF49KXB;
 				INFOPLIST_FILE = MoyaResponseHandlerPlugin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.levibostian.MoyaResponseHandlerPlugin-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -510,10 +512,11 @@
 			baseConfigurationReference = BF256BE042194FC57364F720 /* Pods-MoyaResponseHandlerPlugin_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6FUGF49KXB;
 				INFOPLIST_FILE = MoyaResponseHandlerPlugin/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.levibostian.MoyaResponseHandlerPlugin-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

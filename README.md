@@ -29,3 +29,8 @@ Levi Bostian, levi.bostian@gmail.com
 
 MoyaResponseHandlerPlugin is available under the MIT license. See the LICENSE file for more info.
  
+## Docs
+
+Docs for the plugin are located in `docs` directory. 
+
+The docs are generated via jazzy using command: `jazzy --podspec MoyaResponseHandlerPlugin.podspec` (assuming jazzy is intalled. If not: `gem install jazzy`)

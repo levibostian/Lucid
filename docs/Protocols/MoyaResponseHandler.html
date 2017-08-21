@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MoyaResponseHandler Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/MoyaResponseHandler" class="dashAnchor"></a>
+    <a title="MoyaResponseHandler Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">MoyaResponseHandlerPlugin Docs</a> (100% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">MoyaResponseHandlerPlugin Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        MoyaResponseHandler Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/MoyaResponseHandlerPlugin.html">MoyaResponseHandlerPlugin</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/MoyaNetworkingError.html">MoyaNetworkingError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MoyaResponseError.html">MoyaResponseError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/MoyaResponseHandler.html">MoyaResponseHandler</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>MoyaResponseHandler</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">MoyaResponseHandler</span></code></pre>
+
+                </div>
+              </div>
+            <p>Protocol used to handle the Moya network request from the MoyaResponseHandlerPlugin.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP25MoyaResponseHandlerPlugin19MoyaResponseHandler18successfulResponseFT10statusCodeSi4dataV10Foundation4Data7requestVS1_10URLRequest8responseCSo11URLResponse_T_"></a>
+                    <a name="//apple_ref/swift/Method/successfulResponse(statusCode:data:request:response:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP25MoyaResponseHandlerPlugin19MoyaResponseHandler18successfulResponseFT10statusCodeSi4dataV10Foundation4Data7requestVS1_10URLRequest8responseCSo11URLResponse_T_">successfulResponse(statusCode:data:request:response:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Moya network request was successful (HTTP request successful with status code &gt;= 200 and &lt; 300). You may not need to do anything here, but it is here in case you want to run some code after a successful API request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">successfulResponse</span><span class="p">(</span><span class="nv">statusCode</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="p">,</span> <span class="nv">response</span><span class="p">:</span> <span class="kt">URLResponse</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP25MoyaResponseHandlerPlugin19MoyaResponseHandler15statusCodeErrorFT10statusCodeSi4dataV10Foundation4Data7requestVS1_10URLRequest8responseGSqCSo11URLResponse__SS"></a>
+                    <a name="//apple_ref/swift/Method/statusCodeError(statusCode:data:request:response:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP25MoyaResponseHandlerPlugin19MoyaResponseHandler15statusCodeErrorFT10statusCodeSi4dataV10Foundation4Data7requestVS1_10URLRequest8responseGSqCSo11URLResponse__SS">statusCodeError(statusCode:data:request:response:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Moya network request was successful, but a HTTP status code was returned &gt;= 300. </p>
+
+<p>switch statusCode {
+case 401: return <q>You must login to do that action.</q>
+case 403: return <q>You do not have permission to do that action.</q>
+case &gt;= 500: return <q>System is currently down. Try again later.</q>
+}</p>
+
+<p><em>The error message you return from this function could be used as user facing. Please, make sure to use good error messages to the user that are helpful to them in fixing the problem.</em></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">statusCodeError</span><span class="p">(</span><span class="nv">statusCode</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="p">,</span> <span class="nv">response</span><span class="p">:</span> <span class="kt">URLResponse</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Return back a string that should be used as the Moya request error handler&rsquo;s Error localizedDescription.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP25MoyaResponseHandlerPlugin19MoyaResponseHandler15networkingErrorFT5errorOS_19MoyaNetworkingError7requestGSqV10Foundation10URLRequest_8responseGSqCSo11URLResponse__SS"></a>
+                    <a name="//apple_ref/swift/Method/networkingError(error:request:response:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP25MoyaResponseHandlerPlugin19MoyaResponseHandler15networkingErrorFT5errorOS_19MoyaNetworkingError7requestGSqV10Foundation10URLRequest_8responseGSqCSo11URLResponse__SS">networkingError(error:request:response:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Moya network request was not successful. No network connection, bad network connection, permission error, SSL error, etc.</p>
+
+<p>switch error {
+case notConnectedToInternet(let error): return <q>You are not connected to the Internet.</q>
+case badNetworkRequest(let error): return <q>There is a problem with your Internet connection. Try again.</q>
+case cancelledRequest(let error): return &ldquo;<q>
+case failedNetworkRequest(let error): return</q>There was a problem with your request. We are working on it to fix it.&rdquo;
+}</p>
+
+<p><em>The error message you return from this function could be used as user facing. Please, make sure to use good error messages to the user that are helpful to them in fixing the problem.</em></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">networkingError</span><span class="p">(</span><span class="nv">error</span><span class="p">:</span> <span class="kt"><a href="../Enums/MoyaNetworkingError.html">MoyaNetworkingError</a></span><span class="p">,</span> <span class="nv">request</span><span class="p">:</span> <span class="kt">URLRequest</span><span class="p">?,</span> <span class="nv">response</span><span class="p">:</span> <span class="kt">URLResponse</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Return back a string that should be used as the Moya request error handler&rsquo;s Error localizedDescription.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP25MoyaResponseHandlerPlugin19MoyaResponseHandler9moyaErrorFT5errorO4Moya9MoyaError_SS"></a>
+                    <a name="//apple_ref/swift/Method/moyaError(error:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP25MoyaResponseHandlerPlugin19MoyaResponseHandler9moyaErrorFT5errorO4Moya9MoyaError_SS">moyaError(error:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Moya error encountered. This is a Moya specific error. It could be because Moya had an error parsing the response body to JSON/Image/String. It could be an invalid status code. This is probably an error that you should fix in your app&rsquo;s code. It may not be a user issue.</p>
+
+<p>switch error {
+case imageMapping(Response)
+/// Indicates a response failed to map to a JSON structure.
+case jsonMapping(Response)
+/// Indicates a response failed to map to a String.
+case stringMapping(Response)
+/// Indicates a response failed with an invalid HTTP status code.
+case statusCode(Response)
+/// Indicates a response failed due to an underlying <code>Error</code>.
+case underlying(Swift.Error)
+/// Indicates that an <code>Endpoint</code> failed to map to a <code>URLRequest</code>.
+case requestMapping(String)
+}</p>
+
+<p><em>The error message you return from this function could be used as user facing. Please, make sure to use good error messages to the user that are helpful to them in fixing the problem.</em></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">moyaError</span><span class="p">(</span><span class="nv">error</span><span class="p">:</span> <span class="kt">MoyaError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Return back a string that should be used as the Moya request error handler&rsquo;s Error localizedDescription.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FP25MoyaResponseHandlerPlugin19MoyaResponseHandler12unknownErrorFT5errorPs5Error__SS"></a>
+                    <a name="//apple_ref/swift/Method/unknownError(error:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FP25MoyaResponseHandlerPlugin19MoyaResponseHandler12unknownErrorFT5errorPs5Error__SS">unknownError(error:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Error that is not a URLError or Moya error. It is an unknown error that you should handle yourself. Not sure why this would ever happen in your code, but something happened.</p>
+
+<p><em>The error message you return from this function could be used as user facing. Please, make sure to use good error messages to the user that are helpful to them in fixing the problem.</em></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">unknownError</span><span class="p">(</span><span class="nv">error</span><span class="p">:</span> <span class="kt">Swift</span><span class="o">.</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Return back a string that should be used as the Moya request error handler&rsquo;s Error localizedDescription.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://github.com/levibostian/MoyaResponseHandlerPlugin" target="_blank" rel="external">Levi Bostian</a>. All rights reserved. (Last updated: 2017-08-20)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
