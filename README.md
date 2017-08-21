@@ -1,5 +1,7 @@
-# MoyaResponseHandlerPlugin
+# Moya Response Handler 
 Quick to configure [Moya](https://github.com/Moya/Moya) plugin to handle API responses for mobile app. 
+
+![](meta/header.jpg)
 
 [![Version](https://img.shields.io/cocoapods/v/MoyaResponseHandlerPlugin.svg?style=flat)](http://cocoapods.org/pods/MoyaResponseHandlerPlugin)
 [![License](https://img.shields.io/cocoapods/l/MoyaResponseHandlerPlugin.svg?style=flat)](http://cocoapods.org/pods/MoyaResponseHandlerPlugin)
@@ -77,3 +79,7 @@ MoyaResponseHandlerPlugin is available under the MIT license. See the LICENSE fi
 Docs for the plugin are located in `docs` directory. 
 
 The docs are generated via jazzy using command: `jazzy --podspec MoyaResponseHandlerPlugin.podspec` (assuming jazzy is intalled. If not: `gem install jazzy`)
+
+# Credits 
+
+Photo by [Steve Richey](https://unsplash.com/photos/enTun1g_5b4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
