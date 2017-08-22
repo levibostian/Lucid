@@ -26,7 +26,7 @@ public protocol MoyaResponseHandler {
     /** 
       The Moya network request was successful (HTTP request successful with status code >= 200 and < 300). You may not need to do anything here, but it is here in case you want to run some code after a successful API request.
     */
-    func successfulResponse(statusCode: Int, data: Data, request: URLRequest, response: URLResponse)
+    func successfulResponse(_ target: TargetType, statusCode: Int, data: Data, request: URLRequest, response: URLResponse)
     
     /**
       Moya network request was successful, but a HTTP status code was returned >= 300. 
@@ -41,7 +41,7 @@ public protocol MoyaResponseHandler {
      
      - Returns: Return back a string that should be used as the Moya request error handler's Error localizedDescription.
      */
-    func statusCodeError(statusCode: Int, data: Data, request: URLRequest, response: URLResponse?) -> String
+    func statusCodeError(_ target: TargetType, statusCode: Int, data: Data, request: URLRequest, response: URLResponse?) -> String
     
     /**
      Moya network request was not successful. No network connection, bad network connection, permission error, SSL error, etc.
@@ -57,7 +57,7 @@ public protocol MoyaResponseHandler {
      
      - Returns: Return back a string that should be used as the Moya request error handler's Error localizedDescription.
      */
-    func networkingError(error: MoyaNetworkingError, request: URLRequest?, response: URLResponse?) -> String
+    func networkingError(_ target: TargetType, error: MoyaNetworkingError, request: URLRequest?, response: URLResponse?) -> String
     
     /**
      Moya error encountered. This is a Moya specific error. It could be because Moya had an error parsing the response body to JSON/Image/String. It could be an invalid status code. This is probably an error that you should fix in your app's code. It may not be a user issue.
@@ -80,7 +80,7 @@ public protocol MoyaResponseHandler {
      
      - Returns: Return back a string that should be used as the Moya request error handler's Error localizedDescription.
      */
-    func moyaError(error: MoyaError) -> String
+    func moyaError(_ target: TargetType, error: MoyaError) -> String
     
     /**
      Error that is not a URLError or Moya error. It is an unknown error that you should handle yourself. Not sure why this would ever happen in your code, but something happened.
@@ -89,7 +89,7 @@ public protocol MoyaResponseHandler {
      
      - Returns: Return back a string that should be used as the Moya request error handler's Error localizedDescription.
      */
-    func unknownError(error: Swift.Error) -> String
+    func unknownError(_ target: TargetType, error: Swift.Error) -> String
 }
 
 /**
@@ -121,17 +121,17 @@ public class MoyaResponseHandlerPlugin: PluginType {
             
             switch statusCode {
             case 200...299:
-                handler.successfulResponse(statusCode: statusCode, data: moyaResponse.data, request: apiRequest!, response: apiResponse!)
+                handler.successfulResponse(target, statusCode: statusCode, data: moyaResponse.data, request: apiRequest!, response: apiResponse!)
                 return result
             default:
-                let errorMessage: String = handler.statusCodeError(statusCode: statusCode, data: moyaResponse.data, request: apiRequest!, response: apiResponse)
+                let errorMessage: String = handler.statusCodeError(target, statusCode: statusCode, data: moyaResponse.data, request: apiRequest!, response: apiResponse)
                 
                 return Result.failure(MoyaError.underlying(MoyaResponseError.statusCodeError(message: errorMessage)))
             }
         }) { (responseError: MoyaError) -> Result<Response, MoyaError> in
             switch responseError {
             case MoyaError.imageMapping, MoyaError.jsonMapping, MoyaError.requestMapping, MoyaError.statusCode, MoyaError.stringMapping:
-                let errorMessage: String = handler.moyaError(error: responseError)
+                let errorMessage: String = handler.moyaError(target, error: responseError)
                 
                 return Result.failure(MoyaError.underlying(MoyaResponseError.moyaError(message: errorMessage)))
             case MoyaError.underlying(let error):
@@ -140,21 +140,21 @@ public class MoyaResponseHandlerPlugin: PluginType {
                     
                     switch urlError.code {
                     case URLError.Code.notConnectedToInternet:
-                        errorMessage = handler.networkingError(error: MoyaNetworkingError.notConnectedToInternet(urlError), request: apiRequest, response: apiResponse)
+                        errorMessage = handler.networkingError(target, error: MoyaNetworkingError.notConnectedToInternet(urlError), request: apiRequest, response: apiResponse)
                         break
                     case URLError.Code.timedOut, URLError.Code.networkConnectionLost, URLError.Code.dnsLookupFailed:
-                        errorMessage = handler.networkingError(error: MoyaNetworkingError.badNetworkRequest(urlError), request: apiRequest, response: apiResponse)
+                        errorMessage = handler.networkingError(target, error: MoyaNetworkingError.badNetworkRequest(urlError), request: apiRequest, response: apiResponse)
                         break
                     case URLError.Code.cancelled:
-                        errorMessage = handler.networkingError(error: MoyaNetworkingError.cancelledRequest(urlError), request: apiRequest, response: apiResponse)
+                        errorMessage = handler.networkingError(target, error: MoyaNetworkingError.cancelledRequest(urlError), request: apiRequest, response: apiResponse)
                         break
                     default:
-                        errorMessage = handler.networkingError(error: MoyaNetworkingError.failedNetworkRequest(urlError), request: apiRequest, response: apiResponse)
+                        errorMessage = handler.networkingError(target, error: MoyaNetworkingError.failedNetworkRequest(urlError), request: apiRequest, response: apiResponse)
                         break
                     }
                     return Result.failure(MoyaError.underlying(MoyaResponseError.networkingError(message: errorMessage)))
                 } else {
-                    let errorMessage: String = handler.unknownError(error: responseError)
+                    let errorMessage: String = handler.unknownError(target, error: responseError)
                     
                     return Result.failure(MoyaError.underlying(MoyaResponseError.otherError(message: errorMessage)))
                 }
