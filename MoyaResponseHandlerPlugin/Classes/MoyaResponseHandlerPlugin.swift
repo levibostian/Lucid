@@ -126,14 +126,14 @@ public class MoyaResponseHandlerPlugin: PluginType {
             default:
                 let errorMessage: String = handler.statusCodeError(target, statusCode: statusCode, data: moyaResponse.data, request: apiRequest!, response: apiResponse)
                 
-                return Result.failure(MoyaError.underlying(MoyaResponseError.statusCodeError(message: errorMessage, statusCode: statusCode)))
+                return Result.failure(MoyaError.underlying(MoyaResponseError.statusCodeError(message: errorMessage, statusCode: statusCode, request: apiRequest, response: apiResponse)))
             }
         }) { (responseError: MoyaError) -> Result<Response, MoyaError> in
             switch responseError {
             case MoyaError.imageMapping, MoyaError.jsonMapping, MoyaError.requestMapping, MoyaError.statusCode, MoyaError.stringMapping:
                 let errorMessage: String = handler.moyaError(target, error: responseError)
                 
-                return Result.failure(MoyaError.underlying(MoyaResponseError.moyaError(message: errorMessage, originalError: responseError)))
+                return Result.failure(MoyaError.underlying(MoyaResponseError.moyaError(message: errorMessage, originalError: responseError, request: apiRequest, response: apiResponse)))
             case MoyaError.underlying(let error):
                 if let urlError = error as? URLError {
                     var errorMessage = ""
@@ -152,11 +152,11 @@ public class MoyaResponseHandlerPlugin: PluginType {
                         errorMessage = handler.networkingError(target, error: MoyaNetworkingError.failedNetworkRequest(urlError), request: apiRequest, response: apiResponse)
                         break
                     }
-                    return Result.failure(MoyaError.underlying(MoyaResponseError.networkingError(message: errorMessage, originalError: urlError)))
+                    return Result.failure(MoyaError.underlying(MoyaResponseError.networkingError(message: errorMessage, originalError: urlError, request: apiRequest, response: apiResponse)))
                 } else {
                     let errorMessage: String = handler.unknownError(target, error: responseError)
                     
-                    return Result.failure(MoyaError.underlying(MoyaResponseError.otherError(message: errorMessage, originalError: error)))
+                    return Result.failure(MoyaError.underlying(MoyaResponseError.otherError(message: errorMessage, originalError: error, request: apiRequest, response: apiResponse)))
                 }
             }
         }
