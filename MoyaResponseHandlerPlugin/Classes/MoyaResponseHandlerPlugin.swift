@@ -15,7 +15,7 @@ import Result
  Enable/disable running the MoyaResponseHandlerPlugin for Moya Target. Inherit this protocol in your Moya TargetType enum and override the functions.
  
 */
-protocol RunMoyaResponseHandlerProtocol {
+public protocol RunMoyaResponseHandlerProtocol {
     
     /// Enable or disable running the MoyaResponseHandler plugin code on this target. true is used by default.
     var enableMoyaResponseHandlerPlugin: Bool { get }
