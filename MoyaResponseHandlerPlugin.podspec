@@ -31,5 +31,5 @@ When building iOS apps, you need to handle the response from an API call. Maybe 
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'MoyaResponseHandlerPlugin/Classes/**/*'
-  s.dependency 'Moya', '~> 8.0.5'
+  s.dependency 'Moya/RxSwift', '~> 8.0.5'
 end

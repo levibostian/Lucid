@@ -1,5 +1,10 @@
 use_frameworks!
 
+platform :ios, '9.0'
+
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
 target 'MoyaResponseHandlerPlugin_Example' do
   pod 'MoyaResponseHandlerPlugin', :path => '../'
 
