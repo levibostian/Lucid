@@ -9,11 +9,11 @@
 import Foundation
 import Moya
 
-/** 
+/**
  The error type that we return to the Moya Target's error handler in your app code.
  
  In your app's code, the Error's localizedDescription will contain the error message that your MoyaResponseHandler protocol returned. This allows you to use that as a user facing error message to help the user fix their issue.
-*/
+ */
 public enum LucidMoyaResponseError: Swift.Error, LocalizedError {
     /// The user encountered a networking issue with their API request.
     case networkingError(message: String, originalError: URLError)

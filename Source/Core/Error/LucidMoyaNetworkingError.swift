@@ -16,11 +16,11 @@ public enum LucidMoyaNetworkingError {
      One of: URLError.Code.notConnectedToInternet
      */
     case notConnectedToInternet(URLError)
-    /** 
-      Network request failed from some error that could be from a bad network connection.
+    /**
+     Network request failed from some error that could be from a bad network connection.
      
-      One of: URLError.Code.timedOut, URLError.Code.networkConnectionLost, URLError.Code.dnsLookupFailed
-    */
+     One of: URLError.Code.timedOut, URLError.Code.networkConnectionLost, URLError.Code.dnsLookupFailed
+     */
     case badNetworkRequest(URLError)
     /**
      Request cancelled.
@@ -33,5 +33,5 @@ public enum LucidMoyaNetworkingError {
      
      This error could be *any other* URLError that is not already handled from other functions.
      */
-    case failedNetworkRequest(URLError) 
+    case failedNetworkRequest(URLError)
 }

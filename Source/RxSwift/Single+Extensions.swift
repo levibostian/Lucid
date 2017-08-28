@@ -30,7 +30,7 @@ public extension PrimitiveSequence where TraitType == SingleTrait {
     }
     
     /// Use in replace of existing `.subscribe()` function to process any of the thrown errors in the Observable chain and return a human readable error for thrown error.
-    public func subscribeProcessErrors(onSuccess: ((Element) -> Void)? = nil, onError: ((Swift.Error) -> Void)? = nil, errorHandler: LucidMoyaResponseErrorProtocol? = Singleton.sharedInstance.errorHandler) -> Disposable {
+    public func subscribeProcessErrors(errorHandler: LucidMoyaResponseErrorProtocol? = Singleton.sharedInstance.errorHandler, onSuccess: ((Element) -> Void)? = nil, onError: ((Swift.Error) -> Void)? = nil) -> Disposable {
         return catchError(self.errorProcessor(errorHandler: errorHandler))
             .subscribe(onSuccess: onSuccess, onError: onError)
     }

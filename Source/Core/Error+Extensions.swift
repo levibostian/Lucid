@@ -57,9 +57,6 @@ public extension Swift.Error {
                     
                     return LucidMoyaResponseError.otherError(message: errorMessage, originalError: error)
                 }
-            default:
-                let errorMessage = errorHandler.unknownError(moyaError)
-                return LucidMoyaResponseError.otherError(message: errorMessage, originalError: moyaError)
             }
         } else {
             let errorMessage = errorHandler.unknownError(self)
