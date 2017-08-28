@@ -71,7 +71,6 @@
 		2EBC0302C05E736767ED1A0DBB226E40 /* Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F25C994549E60B7AD606E7E7FE1783C /* Rx.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		2F271600D6AAE3DE2C6E10E61AA676AC /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBD1761CC3050A6DA22FB13E42831CA /* Sequence.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		2FCCA36B9DB941DA166F1F5EA6443F5C /* NSBundle+CurrentTestBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B33AC760E9F6E1BDB55DEE047C9139 /* NSBundle+CurrentTestBundle.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		3026E728F6C9CF31C0E0924490F623B6 /* MoyaResponseLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005F3F03662462967B30704339DB79BA /* MoyaResponseLogger.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		30A52EEC5EA76A0EBBCED7519C92B912 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECAB782B466D1F78E8F8A7978A00FA2 /* Disposable.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		311C4F9AA065C25B98F7012E9A47747C /* DisposeBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B71D5FF4D53FFA033963781D1253E28 /* DisposeBag.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		31ACAB73995439FF497E9BB5AF301B27 /* AssertionDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631F34E795573808189842AA37BC89FF /* AssertionDispatcher.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble -w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -430,7 +429,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		005F3F03662462967B30704339DB79BA /* MoyaResponseLogger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MoyaResponseLogger.swift; path = MoyaResponseHandlerPlugin/Classes/MoyaResponseLogger.swift; sourceTree = "<group>"; };
 		0324C4EB2DB0B04409628A07900C7741 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
 		0329C23BDAC3284ED949829CB3B56920 /* MatcherProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MatcherProtocols.swift; path = Sources/Nimble/Matchers/MatcherProtocols.swift; sourceTree = "<group>"; };
 		037D7F13745AFD00A41C6E4BDCB36BFF /* Catch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Catch.swift; path = RxSwift/Observables/Catch.swift; sourceTree = "<group>"; };
@@ -900,7 +898,6 @@
 			isa = PBXGroup;
 			children = (
 				5E56F7690640E5638F87B37241173BBB /* MoyaResponseHandlerPlugin.swift */,
-				005F3F03662462967B30704339DB79BA /* MoyaResponseLogger.swift */,
 				422AC10B60561D663C2833BCDF8881C4 /* Error */,
 				3A3382EFFABD6CEFC30AF6E33916CE50 /* Support Files */,
 				F71C24111F51CCAC000244F0 /* MoyaResponseErrorHandlerProtocol.swift */,
@@ -1964,7 +1961,6 @@
 				EF28008C23D63D96F759D8F4CEBF0398 /* MoyaResponseError.swift in Sources */,
 				E941E47661F01F7321672261F88CCFEB /* MoyaResponseHandlerPlugin-dummy.m in Sources */,
 				12B71779F223A07E8C2B07C211779EA2 /* MoyaResponseHandlerPlugin.swift in Sources */,
-				3026E728F6C9CF31C0E0924490F623B6 /* MoyaResponseLogger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
