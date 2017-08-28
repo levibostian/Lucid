@@ -29,7 +29,7 @@ public protocol MoyaResponseErrorHandlerProtocol {
      
      - Returns: Human readable string meant to show to the end user about the error.
      */
-    func networkingError(_ error: MoyaNetworkingError, request: URLRequest?, response: URLResponse?) -> String
+    func networkingError(_ error: MoyaNetworkingError) -> String
     
     /**
      Moya error encountered. This is a Moya specific error. It could be because Moya had an error parsing the response body to JSON/Image/String. It could be an invalid status code. This is probably an error that you should fix in your app's code. It may not be a user issue.
@@ -53,12 +53,12 @@ public protocol MoyaResponseErrorHandlerProtocol {
      
      - Returns: Human readable string meant to show to the end user about the error.
      */
-    func moyaError(_ error: MoyaError, request: URLRequest?, response: URLResponse?) -> String
+    func moyaError(_ error: MoyaError) -> String
     
     /**
      Error that is not a URLError or Moya error. It is an unknown error that you should handle yourself. Not sure why this would ever happen in your code, but something happened.
      
     - Returns: Human readable string meant to show to the end user about the error.
      */
-    func unknownError(_ error: Swift.Error, request: URLRequest?, response: URLResponse?) -> String
+    func unknownError(_ error: Swift.Error) -> String
 }
