@@ -20,7 +20,6 @@ internal class Singleton {
     }
 }
 
-
 /**
  Configure the MoyaResponseHandlerPlugin. Set defaults for the plugin.  
  */
