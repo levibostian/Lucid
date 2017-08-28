@@ -75,10 +75,10 @@ extension ObservableType where E == Response {
     }
     
     /// Filters out responses that don't fall within the given range, generating errors when others are encountered. Then, process the error Moya has thrown and create a human readable error string for it.
-    public func filterStatusCodesProcessErrors(statusCodes: ClosedRange<Int>, errorHandler: MoyaResponseErrorHandlerProtocol? = nil) throws -> Observable<E> {
+    public func filterStatusCodesProcessErrors(statusCodes: ClosedRange<Int>, errorHandler: MoyaResponseErrorHandlerProtocol? = nil) -> Observable<E> {
         guard let errorHandler = errorHandler ?? Configuration.sharedInstance.errorHandler else {
             errorHandlerNotSet()
-            throw MoyaResponseHandlerFatalError.errorHandlerNotSet
+            return Observable.error(MoyaResponseHandlerFatalError.errorHandlerNotSet)
         }
         
         return flatMap { response -> Observable<E> in
@@ -87,10 +87,22 @@ extension ObservableType where E == Response {
         }
     }
     
-    public func filterStatusCodesProcessErrors(statusCode: Int, errorHandler: MoyaResponseErrorHandlerProtocol? = nil) throws -> Observable<E> {
+    public func filterStatusCodesProcessErrors(statusCodes: [ClosedRange<Int>], errorHandler: MoyaResponseErrorHandlerProtocol? = nil) -> Observable<E> {
         guard let errorHandler = errorHandler ?? Configuration.sharedInstance.errorHandler else {
             errorHandlerNotSet()
-            throw MoyaResponseHandlerFatalError.errorHandlerNotSet
+            return Observable.error(MoyaResponseHandlerFatalError.errorHandlerNotSet)
+        }
+        
+        return flatMap { response -> Observable<E> in
+            return Observable.just(try response.filter(statusCodes: statusCodes))
+                .catchError(self.errorProcessor(response: response, errorHandler: errorHandler))
+        }
+    }
+    
+    public func filterStatusCodesProcessErrors(statusCode: Int, errorHandler: MoyaResponseErrorHandlerProtocol? = nil) -> Observable<E> {
+        guard let errorHandler = errorHandler ?? Configuration.sharedInstance.errorHandler else {
+            errorHandlerNotSet()
+            return Observable.error(MoyaResponseHandlerFatalError.errorHandlerNotSet)
         }
         
         return flatMap { response -> Observable<E> in
@@ -99,35 +111,35 @@ extension ObservableType where E == Response {
         }
     }
     
-    public func filterSuccessfulStatusCodesProcessErrors(errorHandler: MoyaResponseErrorHandlerProtocol? = nil) throws -> Observable<E> {
+    public func filterSuccessfulStatusCodesProcessErrors(append statusCodes: [ClosedRange<Int>] = [], errorHandler: MoyaResponseErrorHandlerProtocol? = nil) -> Observable<E> {
         guard let errorHandler = errorHandler ?? Configuration.sharedInstance.errorHandler else {
             errorHandlerNotSet()
-            throw MoyaResponseHandlerFatalError.errorHandlerNotSet
+            return Observable.error(MoyaResponseHandlerFatalError.errorHandlerNotSet)
         }
         
         return flatMap { response -> Observable<E> in
-            return Observable.just(try response.filterSuccessfulStatusCodes())
+            return Observable.just(try response.filterSuccessfulStatusCodesAppend(statusCodes: statusCodes))
                 .catchError(self.errorProcessor(response: response, errorHandler: errorHandler))
         }
     }
     
-    public func filterSuccessfulStatusAndRedirectCodesProcessErrors(errorHandler: MoyaResponseErrorHandlerProtocol? = nil) throws -> Observable<E> {
+    public func filterSuccessfulStatusAndRedirectCodesProcessErrors(append statusCodes: [ClosedRange<Int>] = [], errorHandler: MoyaResponseErrorHandlerProtocol? = nil) -> Observable<E> {
         guard let errorHandler = errorHandler ?? Configuration.sharedInstance.errorHandler else {
             errorHandlerNotSet()
-            throw MoyaResponseHandlerFatalError.errorHandlerNotSet
+            return Observable.error(MoyaResponseHandlerFatalError.errorHandlerNotSet)
         }
         
         return flatMap { response -> Observable<E> in
-            return Observable.just(try response.filterSuccessfulStatusAndRedirectCodes())
+            return Observable.just(try response.filterSuccessfulStatusAndRedirectCodesAppend(statusCodes: statusCodes))
                 .catchError(self.errorProcessor(response: response, errorHandler: errorHandler))
         }
     }
     
     /// Maps data received from the signal into an Image. If the conversion fails, the signal errors. Then, process the error Moya has thrown and create a human readable error string for it.
-    public func mapImageProcessErrors(errorHandler: MoyaResponseErrorHandlerProtocol? = nil) throws -> Observable<Image?> {
+    public func mapImageProcessErrors(errorHandler: MoyaResponseErrorHandlerProtocol? = nil) -> Observable<Image?> {
         guard let errorHandler = errorHandler ?? Configuration.sharedInstance.errorHandler else {
             errorHandlerNotSet()
-            throw MoyaResponseHandlerFatalError.errorHandlerNotSet
+            return Observable.error(MoyaResponseHandlerFatalError.errorHandlerNotSet)
         }
         
         return flatMap { response -> Observable<Image?> in
@@ -137,10 +149,10 @@ extension ObservableType where E == Response {
     }
     
     /// Maps data received from the signal into a JSON object. If the conversion fails, the signal errors. Then, process the error Moya has thrown and create a human readable error string for it.
-    public func mapJSONProcessErrors(failsOnEmptyData: Bool = true, errorHandler: MoyaResponseErrorHandlerProtocol? = nil) throws -> Observable<Any> {
+    public func mapJSONProcessErrors(failsOnEmptyData: Bool = true, errorHandler: MoyaResponseErrorHandlerProtocol? = nil) -> Observable<Any> {
         guard let errorHandler = errorHandler ?? Configuration.sharedInstance.errorHandler else {
             errorHandlerNotSet()
-            throw MoyaResponseHandlerFatalError.errorHandlerNotSet
+            return Observable.error(MoyaResponseHandlerFatalError.errorHandlerNotSet)
         }
         
         return flatMap { response -> Observable<Any> in
@@ -150,10 +162,10 @@ extension ObservableType where E == Response {
     }
     
     /// Maps received data at key path into a String. If the conversion fails, the signal errors. Then, process the error Moya has thrown and create a human readable error string for it.
-    public func mapStringProcessErrors(atKeyPath keyPath: String? = nil, errorHandler: MoyaResponseErrorHandlerProtocol? = nil) throws -> Observable<String> {
+    public func mapStringProcessErrors(atKeyPath keyPath: String? = nil, errorHandler: MoyaResponseErrorHandlerProtocol? = nil) -> Observable<String> {
         guard let errorHandler = errorHandler ?? Configuration.sharedInstance.errorHandler else {
             errorHandlerNotSet()
-            throw MoyaResponseHandlerFatalError.errorHandlerNotSet
+            return Observable.error(MoyaResponseHandlerFatalError.errorHandlerNotSet)
         }
         
         return flatMap { response -> Observable<String> in
@@ -161,4 +173,63 @@ extension ObservableType where E == Response {
                 .catchError(self.errorProcessor(response: response, errorHandler: errorHandler))
         }
     }
+}
+
+public extension Response {
+    
+    /**
+     Returns the `Response` if the `statusCode` falls within the specified range.
+     
+     - parameters:
+     - statusCodes: The range of acceptable status codes.
+     - throws: `MoyaError.statusCode` when others are encountered.
+     */
+    public func filter(statusCodes: [ClosedRange<Int>]) throws -> Response {
+        var successfulStatusCode = false
+        statusCodes.forEach { (statsCodesSet: ClosedRange<Int>) in
+            if statsCodesSet.contains(statusCode) {
+                successfulStatusCode = true
+            }
+        }
+        
+        if successfulStatusCode {
+            return self
+        }
+        throw MoyaError.statusCode(self)
+    }
+    
+    public func filterSuccessfulStatusCodesAppend(statusCodes: [ClosedRange<Int>]) throws -> Response {
+        var allStatusCodes = statusCodes
+        allStatusCodes.append(200...299)
+        
+        var successfulStatusCode = false
+        allStatusCodes.forEach { (statsCodesSet: ClosedRange<Int>) in
+            if statsCodesSet.contains(statusCode) {
+                successfulStatusCode = true
+            }
+        }
+        
+        if successfulStatusCode {
+            return self
+        }
+        throw MoyaError.statusCode(self)
+    }
+    
+    public func filterSuccessfulStatusAndRedirectCodesAppend(statusCodes: [ClosedRange<Int>]) throws -> Response {
+        var allStatusCodes = statusCodes
+        allStatusCodes.append(200...399)
+        
+        var successfulStatusCode = false
+        allStatusCodes.forEach { (statsCodesSet: ClosedRange<Int>) in
+            if statsCodesSet.contains(statusCode) {
+                successfulStatusCode = true
+            }
+        }
+        
+        if successfulStatusCode {
+            return self
+        }
+        throw MoyaError.statusCode(self)
+    }
+    
 }
