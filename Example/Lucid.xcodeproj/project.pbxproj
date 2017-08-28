@@ -52,6 +52,13 @@
 		EB749B7B38B56E089045E974 /* Pods_MoyaResponseHandlerPlugin_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaResponseHandlerPlugin_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F75160A11F54937F00568DF9 /* Pods_Lucid_Tests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Lucid_Tests.framework; path = "../../../Library/Developer/Xcode/DerivedData/Lucid-fyytxomzzvarxvdmxxijnbtxxfic/Build/Products/Debug-iphonesimulator/Pods_Lucid_Tests.framework"; sourceTree = "<group>"; };
 		F78227951F54905900804BCE /* Lucid.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Lucid.podspec; path = ../Lucid.podspec; sourceTree = "<group>"; };
+		F7DC9A3A1F54AC5200A71AA1 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/Lucid-fyytxomzzvarxvdmxxijnbtxxfic/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
+		F7DC9A3B1F54AC5200A71AA1 /* Lucid.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lucid.framework; path = "../../../Library/Developer/Xcode/DerivedData/Lucid-fyytxomzzvarxvdmxxijnbtxxfic/Build/Products/Debug-iphonesimulator/Lucid/Lucid.framework"; sourceTree = "<group>"; };
+		F7DC9A3C1F54AC5200A71AA1 /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = "../../../Library/Developer/Xcode/DerivedData/Lucid-fyytxomzzvarxvdmxxijnbtxxfic/Build/Products/Debug-iphonesimulator/Moya/Moya.framework"; sourceTree = "<group>"; };
+		F7DC9A3D1F54AC5200A71AA1 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "../../../Library/Developer/Xcode/DerivedData/Lucid-fyytxomzzvarxvdmxxijnbtxxfic/Build/Products/Debug-iphonesimulator/Nimble/Nimble.framework"; sourceTree = "<group>"; };
+		F7DC9A3E1F54AC5200A71AA1 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "../../../Library/Developer/Xcode/DerivedData/Lucid-fyytxomzzvarxvdmxxijnbtxxfic/Build/Products/Debug-iphonesimulator/Quick/Quick.framework"; sourceTree = "<group>"; };
+		F7DC9A3F1F54AC5200A71AA1 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = "../../../Library/Developer/Xcode/DerivedData/Lucid-fyytxomzzvarxvdmxxijnbtxxfic/Build/Products/Debug-iphonesimulator/Result/Result.framework"; sourceTree = "<group>"; };
+		F7DC9A401F54AC5200A71AA1 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = "../../../Library/Developer/Xcode/DerivedData/Lucid-fyytxomzzvarxvdmxxijnbtxxfic/Build/Products/Debug-iphonesimulator/RxSwift/RxSwift.framework"; sourceTree = "<group>"; };
 		F9E381EBF20592E898F7A65C /* Pods_Lucid_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lucid_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -80,6 +87,13 @@
 		2165AB365E3106EF27307A11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F7DC9A3A1F54AC5200A71AA1 /* Alamofire.framework */,
+				F7DC9A3B1F54AC5200A71AA1 /* Lucid.framework */,
+				F7DC9A3C1F54AC5200A71AA1 /* Moya.framework */,
+				F7DC9A3D1F54AC5200A71AA1 /* Nimble.framework */,
+				F7DC9A3E1F54AC5200A71AA1 /* Quick.framework */,
+				F7DC9A3F1F54AC5200A71AA1 /* Result.framework */,
+				F7DC9A401F54AC5200A71AA1 /* RxSwift.framework */,
 				F75160A11F54937F00568DF9 /* Pods_Lucid_Tests.framework */,
 				EB749B7B38B56E089045E974 /* Pods_MoyaResponseHandlerPlugin_Example.framework */,
 				529AB83339599AAFFD175A16 /* Pods_MoyaResponseHandlerPlugin_Tests.framework */,

@@ -1,8 +1,8 @@
 PODS:
   - Alamofire (4.5.0)
-  - Lucid/Core (0.2.0):
+  - Lucid/Core (0.3.0):
     - Moya (~> 8.0.5)
-  - Lucid/RxSwift (0.2.0):
+  - Lucid/RxSwift (0.3.0):
     - Lucid/Core
     - Moya/RxSwift (~> 8.0.5)
   - Moya (8.0.5):
@@ -29,7 +29,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
-  Lucid: f7d7e0ece67058e55f884adf0f48c4ffc66278a8
+  Lucid: 69999c5e5431294a46e66f62ad97fc23968cd3db
   Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
