@@ -10,26 +10,26 @@ import Foundation
 import Moya
 import Result
 
-internal class Configuration {
+internal class Singleton {
     
     internal var errorHandler: MoyaResponseErrorHandlerProtocol?
     
-    static let sharedInstance = Configuration()
+    static let sharedInstance = Singleton()
     
     private init() {
     }
 }
 
+
 /**
- Moya plugin that logs the Moya API network response before completion handler is called. 
- 
- To use, provide the plugin to your MoyaProvider constructor: `MoyaProvider<Target>(plugins: [MoyaResponseHandlerPlugin(logger: MyMoyaResponseLogger())])`
+ Configure the MoyaResponseHandlerPlugin. Set defaults for the plugin.  
  */
-public class MoyaResponseHandlerPlugin: PluginType {
+public class MoyaResponseHandlerPluginConfiguration {
     
-    /// Provide the MoyaResponseHandlerPlugin with your logger instance if you wish.
-    public init(errorHandler: MoyaResponseErrorHandlerProtocol) {
-        Configuration.sharedInstance.errorHandler = errorHandler
+    public class func setDefaultErrorHandler(_ errorHandler: MoyaResponseErrorHandlerProtocol?) {
+        Singleton.sharedInstance.errorHandler = errorHandler
     }
     
 }
+
+

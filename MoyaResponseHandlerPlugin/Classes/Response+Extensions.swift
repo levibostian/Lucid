@@ -21,10 +21,10 @@ enum MoyaResponseHandlerFatalError: Swift.Error, LocalizedError {
     }
 }
 
-extension ObservableType {
+public extension PrimitiveSequence where TraitType == SingleTrait {
     
-    private func errorProcessor<R>(errorHandler: MoyaResponseErrorHandlerProtocol) -> (Swift.Error) throws -> Observable<R> {
-        return { (error: Swift.Error) -> Observable<R> in
+    private func errorProcessor<R>(errorHandler: MoyaResponseErrorHandlerProtocol) -> (Swift.Error) throws -> Single<R> {
+        return { (error: Swift.Error) -> Single<R> in
             switch error {
             case MoyaError.statusCode(let response):
                 let errorMessage = errorHandler.statusCodeError(response.statusCode, request: response.request, response: response.response)
@@ -71,14 +71,37 @@ extension ObservableType {
         fatalError("You forgot to construct the MoyaResponseErrorHandlerPlugin with an instance of a default errorHandler instance or provide an instance of errorHandler into response function.")
     }
     
-    public func subscribeProcessErrors(onNext: ((Self.E) -> Void)? = nil, onError: ((Swift.Error) -> Void)? = nil, onCompleted: (() -> Void)? = nil, onDisposed: (() -> Void)? = nil, errorHandler: MoyaResponseErrorHandlerProtocol? = Configuration.sharedInstance.errorHandler) -> Disposable {
+    public func subscribeProcessErrors(onSuccess: ((Element) -> Void)? = nil, onError: ((Swift.Error) -> Void)? = nil, errorHandler: MoyaResponseErrorHandlerProtocol? = Singleton.sharedInstance.errorHandler) -> Disposable {
         guard let errorHandler = errorHandler else {
             errorHandlerNotSet()
             return Disposables.create()
         }
         
         return catchError(self.errorProcessor(errorHandler: errorHandler))
-            .subscribe(onNext: onNext, onError: onError, onCompleted: onCompleted, onDisposed: onDisposed)
+            .subscribe(onSuccess: onSuccess, onError: onError)
+    }
+    
+}
+
+public extension ObservableType where E == Response {
+    
+    /// Filters out responses that don't fall within the given range, generating errors when others are encountered.
+    public func filter(statusCodes: [ClosedRange<Int>]) -> Observable<E> {
+        return flatMap { response -> Observable<E> in
+            return Observable.just(try response.filter(statusCodes: statusCodes))
+        }
+    }
+    
+    public func filterSuccessfulStatusCodesAppend(code: Int? = nil, statusCodes: [ClosedRange<Int>] = []) -> Observable<E> {
+        return flatMap { response -> Observable<E> in
+            return Observable.just(try response.filterSuccessfulStatusCodesAppend(code: code, statusCodes: statusCodes))
+        }
+    }
+    
+    public func filterSuccessfulStatusAndRedirectCodesAppend(code: Int? = nil, statusCodes: [ClosedRange<Int>] = []) -> Observable<E> {
+        return flatMap { response -> Observable<E> in
+            return Observable.just(try response.filterSuccessfulStatusAndRedirectCodesAppend(code: code, statusCodes: statusCodes))
+        }
     }
     
 }
