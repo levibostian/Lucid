@@ -5,10 +5,10 @@ platform :ios, '9.0'
 # ignore all warnings from all pods
 inhibit_all_warnings!
 
-target 'MoyaResponseHandlerPlugin_Example' do
-  pod 'MoyaResponseHandlerPlugin', :path => '../'
+target 'Lucid_Example' do
+  pod 'Lucid/RxSwift', :path => '../'
 
-  target 'MoyaResponseHandlerPlugin_Tests' do
+  target 'Lucid_Tests' do
     inherit! :search_paths
 
     pod 'Quick', '~> 1.0.0'

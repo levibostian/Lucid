@@ -1,0 +1,6 @@
+framework module Lucid {
+  umbrella header "Lucid-umbrella.h"
+
+  export *
+  module * { export * }
+}

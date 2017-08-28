@@ -1,11 +1,11 @@
-# Moya Response Handler 
-Quick to configure [Moya](https://github.com/Moya/Moya) plugin to handle API responses for mobile app. 
+# Lucid
+Make Moya errors more human readable. Show users of your app an error message they can understand. 
 
 ![](meta/header.jpg)
 
-[![Version](https://img.shields.io/cocoapods/v/MoyaResponseHandlerPlugin.svg?style=flat)](http://cocoapods.org/pods/MoyaResponseHandlerPlugin)
-[![License](https://img.shields.io/cocoapods/l/MoyaResponseHandlerPlugin.svg?style=flat)](http://cocoapods.org/pods/MoyaResponseHandlerPlugin)
-[![Platform](https://img.shields.io/cocoapods/p/MoyaResponseHandlerPlugin.svg?style=flat)](http://cocoapods.org/pods/MoyaResponseHandlerPlugin)
+[![Version](https://img.shields.io/cocoapods/v/Lucid.svg?style=flat)](http://cocoapods.org/pods/Lucid)
+[![License](https://img.shields.io/cocoapods/l/Lucid.svg?style=flat)](http://cocoapods.org/pods/Lucid)
+[![Platform](https://img.shields.io/cocoapods/p/Lucid.svg?style=flat)](http://cocoapods.org/pods/Lucid)
 
 # Why?
 
@@ -33,29 +33,32 @@ With all of the mobile apps I build and maintain, I copy/pasted this boilerplate
 
 # How? 
 
-* Create a class that inherits the `MoyaResponseHandler` protocol. 
+* Create a class that inherits the `LucidMoyaResponseErrorProtocol` protocol. 
 
 ```swift
-class MyMoyaResponseHandler: MoyaResponseHandler {
+class MyLucidMoyaResponseErrorProtocol: LucidMoyaResponseErrorProtocol {
     ...
 }
 ```
 
-* Install the plugin by providing a plugin instance to your `MoyaProvider`:
+* Set this class as the default error handler for all of your Moya endpoints:
 
-```swift
-MoyaProvider<Target>(plugins: [MoyaResponseHandlerPlugin(handler: MyMoyaResponseHandler)])
+```swift 
+LucidConfiguration.setDefaultErrorHandler(MyLucidMoyaResponseErrorProtocol())
 ```
 
 * Use your `MoyaProvider` as usual to call your endpoints. 
 
 ## Installation
 
-MoyaResponseHandlerPlugin is available through [CocoaPods](http://cocoapods.org). To install
+Lucid is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "MoyaResponseHandlerPlugin"
+pod "Lucid"
+
+// Or, use RxSwift version
+pod "Lucid/RxSwift"
 ```
 
 ## Author 
@@ -66,20 +69,22 @@ pod "MoyaResponseHandlerPlugin"
 
 ## License
 
-MoyaResponseHandlerPlugin is available under the MIT license. See the LICENSE file for more info.
+Lucid is available under the MIT license. See the LICENSE file for more info.
  
 ## Docs
 
-[Check out the docs here](https://levibostian.github.io/MoyaResponseHandlerPlugin/Classes/MoyaResponseHandlerPlugin.html). 
+[Check out the docs here](http://cocoadocs.org/docsets/Lucid/0.3.0/). 
 
 ## Development 
 
 ### Documentation 
 
-Docs for the plugin are located in `docs` directory. 
+The docs are generated and hosted by cocoapods automatically for cocoadocs. 
 
-The docs are generated via jazzy using command: `jazzy --podspec MoyaResponseHandlerPlugin.podspec` (assuming jazzy is intalled. If not: `gem install jazzy`)
+The docs are generated via jazzy using command: `jazzy --podspec Lucid.podspec` (assuming jazzy is intalled. If not: `gem install jazzy`)
 
 # Credits 
 
-Photo by [Steve Richey](https://unsplash.com/photos/enTun1g_5b4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+* Thank you to [Moya-ObjectMapper](https://github.com/ivanbruel/Moya-ObjectMapper) for the API design implementation for this project. 
+
+* Photo by [Steve Richey](https://unsplash.com/photos/enTun1g_5b4?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)

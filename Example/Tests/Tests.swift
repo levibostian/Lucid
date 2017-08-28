@@ -2,7 +2,7 @@
 
 import Quick
 import Nimble
-import MoyaResponseHandlerPlugin
+import Lucid
 
 class TableOfContentsSpec: QuickSpec {
     override func spec() {

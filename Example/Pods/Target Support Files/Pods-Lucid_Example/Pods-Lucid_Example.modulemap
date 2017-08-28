@@ -1,0 +1,6 @@
+framework module Pods_Lucid_Example {
+  umbrella header "Pods-Lucid_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
