@@ -54,11 +54,5 @@ public protocol LucidMoyaResponseErrorProtocol {
      - Returns: Human readable string meant to show to the end user about the error.
      */
     func moyaError(_ error: MoyaError) -> String
-    
-    /**
-     Error that is not a URLError or Moya error. It is an unknown error that you should handle yourself. Not sure why this would ever happen in your code, but something happened.
-     
-    - Returns: Human readable string meant to show to the end user about the error.
-     */
-    func unknownError(_ error: Swift.Error) -> String
+        
 }

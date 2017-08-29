@@ -16,10 +16,10 @@ public extension Swift.Error {
     }
     
     /// Take the error that Moya returned to you after performing the networking request to get a better, human readable error message `LucidMoyaResponseError`.
-    public func getLucidError(errorHandler: LucidMoyaResponseErrorProtocol? = Singleton.sharedInstance.errorHandler) -> LucidMoyaResponseError {
+    public func getLucidError(errorHandler: LucidMoyaResponseErrorProtocol? = Singleton.sharedInstance.errorHandler) -> Swift.Error {
         guard let errorHandler = errorHandler else {
             errorHandlerNotSet()
-            return LucidMoyaResponseError.otherError(message: "this should never run", originalError: self)
+            return LucidMoyaResponseError.moyaError(message: "this should never run", originalError: self as! MoyaError)
         }
         
         if let moyaError = self as? MoyaError {
@@ -53,14 +53,13 @@ public extension Swift.Error {
                         return LucidMoyaResponseError.networkingError(message: errorMessage, originalError: urlError)
                     }
                 } else {
-                    let errorMessage = errorHandler.unknownError(error)
-                    
-                    return LucidMoyaResponseError.otherError(message: errorMessage, originalError: error)
+                    // return self so we allow any custom errors thrown to be passed through.
+                    return self
                 }
             }
         } else {
-            let errorMessage = errorHandler.unknownError(self)
-            return LucidMoyaResponseError.otherError(message: errorMessage, originalError: self)
+            // return self so we allow any custom errors thrown (instead of MoyaErrors) to be passed through.
+            return self
         }
     }
     

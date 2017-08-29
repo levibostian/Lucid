@@ -21,8 +21,6 @@ public enum LucidMoyaResponseError: Swift.Error, LocalizedError {
     case statusCodeError(message: String, statusCode: Int, request: URLRequest?, response: URLResponse?)
     /// Moya specific error. Moya had an error mapping response body to JSON, Image, String, etc.
     case moyaError(message: String, originalError: MoyaError)
-    /// Not any of the URLError or Moya error types. Unknown error to the plugin.
-    case otherError(message: String, originalError: Swift.Error)
     
     public var errorDescription: String? {
         switch self {
@@ -32,8 +30,6 @@ public enum LucidMoyaResponseError: Swift.Error, LocalizedError {
             return NSLocalizedString(message, comment: "An error was encountered. Try again.")
         case .moyaError(let message, _):
             return NSLocalizedString(message, comment: "Moya specific error. Error creating Moya Endpoint, parsing JSON/Image/String, invalid status code received.")
-        case .otherError(let message, _):
-            return NSLocalizedString(message, comment: "Not any of the URLError options. Some other Swift.Error option.")
         }
     }
 }
