@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Lucid'
-  s.version          = '0.3.0'
+  s.version          = '0.4.0'
   s.summary          = 'Parse Moya networking errors for a more human readable error message to show to the end user.'
   s.description      = <<-DESC
 When building iOS apps, you need to handle the response from an API call. Maybe the response was successful. Maybe it failed because the user's Internet connection is bad. Maybe the status code was a 403 error. Maybe Moya failed parsing the response body to JSON. No matter what the case is, writing the code to handle these responses require a lot of boilerplate. With the help of Moya making it easy to work with networking calls, this plugin makes it very quick and easy to configure how your app will handle Moya network call responses.
