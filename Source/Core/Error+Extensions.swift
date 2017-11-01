@@ -19,6 +19,7 @@ public extension Swift.Error {
     public func getLucidError(errorHandler: LucidErrorMessageProvider? = Singleton.sharedInstance.errorHandler) -> Swift.Error {
         guard let errorHandler = errorHandler else {
             errorHandlerNotSet()
+            // this code below exists only to make the compiler happy. Really, it should never run as a fatal error is thrown above but the swift compiler doesn't consider that a break.
             return LucidMoyaError.moyaError(message: "this should never run", originalError: self as! MoyaError)
         }
         
@@ -53,12 +54,12 @@ public extension Swift.Error {
                         return LucidMoyaError.networkingError(message: errorMessage, originalError: urlError)
                     }
                 } else {
-                    // return self so we allow any custom errors thrown to be passed through.
+                    // return self so we allow any custom errors (not MoyaErrors) thrown to be passed through.
                     return self
                 }
             }
         } else {
-            // return self so we allow any custom errors thrown (instead of MoyaErrors) to be passed through.
+            // return self so we allow any custom errors (not MoyaErrors) thrown to be passed through.
             return self
         }
     }

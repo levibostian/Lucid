@@ -250,7 +250,6 @@
 		B946DD682DB1B6C33CFCCA16E8E24D56 /* LucidErrorMessageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114B7EB0F7E938C5454C5B63502DFFE3 /* LucidErrorMessageProvider.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		BB5720CF42D1ADF481E8249D44E7922B /* RecursiveLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED2A1D01054D8E2267AAAE73085A564 /* RecursiveLock.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		BBE5DEDDBD2F6E6AB0CF1AFC7ABA97F7 /* TakeWhile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9281F3321BE7B84B850AB54BAED38BB1 /* TakeWhile.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		BC219F076AF816FB1D3E60F940589387 /* Response+Observable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98738C824F9838C6F95EC50F3D516C5E /* Response+Observable+Extensions.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		BC457B95724B9D106D482283440F6965 /* LucidConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403C3793C2D72D9AC031913C3219FEAA /* LucidConfiguration.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		BD6F6FB52FEDE7080EC0D9D2C25F18D2 /* NSString+C99ExtendedIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00125C5D083B334593FA24C69BBC02AD /* NSString+C99ExtendedIdentifier.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		BD753CB3949A6296C497E714B49D36A5 /* AnonymousObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0867D5F734ECCFC92198C67FE473AF68 /* AnonymousObserver.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -668,7 +667,6 @@
 		97CD5107F8BE2A3B5BF335024E449B6A /* Amb.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Amb.swift; path = RxSwift/Observables/Amb.swift; sourceTree = "<group>"; };
 		9806C13716F0BB74AFD21153A9E096B7 /* Predicate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Predicate.swift; path = Sources/Nimble/Matchers/Predicate.swift; sourceTree = "<group>"; };
 		981B3FC115981D749C371A1CD9307FBC /* BehaviorSubject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BehaviorSubject.swift; path = RxSwift/Subjects/BehaviorSubject.swift; sourceTree = "<group>"; };
-		98738C824F9838C6F95EC50F3D516C5E /* Response+Observable+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Response+Observable+Extensions.swift"; path = "Source/RxSwift/Response+Observable+Extensions.swift"; sourceTree = "<group>"; };
 		996DAB1E657DBFD87A8094E09C44C8A3 /* BeLessThanOrEqual.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeLessThanOrEqual.swift; path = Sources/Nimble/Matchers/BeLessThanOrEqual.swift; sourceTree = "<group>"; };
 		9A1636F97144F47F0C6906B0247CC4CE /* AsMaybe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AsMaybe.swift; path = RxSwift/Observables/AsMaybe.swift; sourceTree = "<group>"; };
 		9A72A23CE9BA5964ABD6BEA0BEDCCD07 /* Lucid-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Lucid-umbrella.h"; sourceTree = "<group>"; };
@@ -1153,7 +1151,6 @@
 		8B0F24FD468493CA3909F1DD9D06EF04 /* RxSwift */ = {
 			isa = PBXGroup;
 			children = (
-				98738C824F9838C6F95EC50F3D516C5E /* Response+Observable+Extensions.swift */,
 				60CB12A04E12C452A860A4A10160EA5D /* Single+Extensions.swift */,
 			);
 			name = RxSwift;
@@ -1851,7 +1848,6 @@
 				90C870340801A089807BCA15ACE2CB98 /* LucidMoyaError.swift in Sources */,
 				B946DD682DB1B6C33CFCCA16E8E24D56 /* LucidErrorMessageProvider.swift in Sources */,
 				9283412A9E2798125B81234BEBE9B03A /* Response+Extensions.swift in Sources */,
-				BC219F076AF816FB1D3E60F940589387 /* Response+Observable+Extensions.swift in Sources */,
 				80CEE9B15F48AE302913DD9E0669467E /* Single+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

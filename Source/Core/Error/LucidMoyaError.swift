@@ -17,7 +17,7 @@ import Moya
 public enum LucidMoyaError: Swift.Error, LocalizedError {
     /// The user encountered a networking issue with their API request.
     case networkingError(message: String, originalError: URLError)
-    /// The request was successful, but the status code is >= 300.
+    /// The request was successful, but the status code is not acceptable as a successful response.
     case statusCodeError(message: String, statusCode: Int, request: URLRequest?, response: URLResponse?)
     /// Moya specific error. Moya had an error mapping response body to JSON, Image, String, etc.
     case moyaError(message: String, originalError: MoyaError)
