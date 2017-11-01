@@ -9,9 +9,10 @@
 import Foundation
 import Moya
 
+/// These functions exist for convenience. Moya provides .filter() functions for status codes, but I wanted to provide functions to filter *arrays* of status codes. What if I want to filter codes 401, 403 - 422, 500 - 600? That's a rediculous example, but if someone wants to do that, then they can with these functions.
 public extension Response {
     
-    /// Filters out responses that don't fall within the given range, generating errors when others are encountered.
+    /// Filters out responses that don't fall within the given range, generating a MoyaError status code error when others are encountered.
     public func filter(statusCodes: [ClosedRange<Int>]) throws -> Response {
         var successfulStatusCode = false
         statusCodes.forEach { (statsCodesSet: ClosedRange<Int>) in
@@ -26,7 +27,7 @@ public extension Response {
         throw MoyaError.statusCode(self)
     }
     
-    /// Filters out responses that do not have a status code >=200, <300 and don't fall within the given range, generating errors when others are encountered.
+    /// Filters out responses that do not have a status code >=200, <300 and don't fall within the given range, generating a MoyaError status code error when others are encountered.
     public func filterSuccessfulStatusCodesAppend(code: Int? = nil, statusCodes: [ClosedRange<Int>] = []) throws -> Response {
         var allStatusCodes = statusCodes
         
@@ -46,7 +47,7 @@ public extension Response {
         throw MoyaError.statusCode(self)
     }
     
-    /// Filters out responses that do not have a status code >=200, <400 and don't fall within the given range, generating errors when others are encountered.
+    /// Filters out responses that do not have a status code >=200, <400 and don't fall within the given range, generating a MoyaError status code error when others are encountered.
     public func filterSuccessfulStatusAndRedirectCodesAppend(code: Int? = nil, statusCodes: [ClosedRange<Int>] = []) throws -> Response {
         var allStatusCodes = statusCodes
         

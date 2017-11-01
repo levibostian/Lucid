@@ -16,13 +16,13 @@ When building iOS apps, you need to handle the response from an API call. Maybe 
 
   s.subspec "Core" do |ss|
     ss.source_files  = "Source/Core/**/*.swift"
-    ss.dependency "Moya", '~> 8.0.5'
+    ss.dependency "Moya", '~> 10.0.0'
     ss.framework  = "Foundation"
   end
 
   s.subspec "RxSwift" do |ss|
     ss.source_files = "Source/RxSwift/**/*.swift"
-    ss.dependency "Moya/RxSwift", '~> 8.0.5'
+    ss.dependency "Moya/RxSwift", '~> 10.0.0'
     ss.dependency "Lucid/Core"
   end
 end

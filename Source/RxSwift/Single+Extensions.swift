@@ -23,14 +23,14 @@ enum MoyaResponseHandlerFatalError: Swift.Error, LocalizedError {
 
 public extension PrimitiveSequence where TraitType == SingleTrait {
     
-    private func errorProcessor<R>(errorHandler: LucidMoyaResponseErrorProtocol?) -> (Swift.Error) throws -> Single<R> {
+    private func errorProcessor<R>(errorHandler: LucidErrorMessageProvider?) -> (Swift.Error) throws -> Single<R> {
         return { (error: Swift.Error) -> Single<R> in
             throw error.getLucidError()
         }
     }
     
     /// Use in replace of existing `.subscribe()` function to process any of the thrown errors in the Observable chain and return a human readable error for thrown error.
-    public func subscribeProcessErrors(errorHandler: LucidMoyaResponseErrorProtocol? = Singleton.sharedInstance.errorHandler, onSuccess: ((Element) -> Void)? = nil, onError: ((Swift.Error) -> Void)? = nil) -> Disposable {
+    public func subscribeProcessErrors(errorHandler: LucidErrorMessageProvider? = Singleton.sharedInstance.errorHandler, onSuccess: ((Element) -> Void)? = nil, onError: ((Swift.Error) -> Void)? = nil) -> Disposable {
         return catchError(self.errorProcessor(errorHandler: errorHandler))
             .subscribe(onSuccess: onSuccess, onError: onError)
     }

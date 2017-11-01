@@ -1,6 +1,8 @@
 # Lucid
 Make Moya errors more human readable. Show users of your app an error message they can understand. 
 
+![Swift 4.0.x](https://img.shields.io/badge/Swift-4.0.x-orange.svg)
+
 ![](meta/header.jpg)
 
 [![Version](https://img.shields.io/cocoapods/v/Lucid.svg?style=flat)](http://cocoapods.org/pods/Lucid)
@@ -9,34 +11,14 @@ Make Moya errors more human readable. Show users of your app an error message th
 
 # Why?
 
-When I build mobile apps, this is how I want to handle API network requests:
-
-Was the API request successful (HTTP response status code >=200, <300)? 
-* Yes
-  * Parse the response to JSON, string, image, etc. Use the response on my app. 
-* No
-  * Was it a network connectivity issue? 
-  * Yes
-    * Show the user a human readable message saying they have no Internet, request failed but they can try again, etc. 
-  * No
-    * Was the network request successful, but the server responded back with a status code >=300?
-    * Yes
-      * Let me see the status code, possibly parse the response body, then return a human readable message to the user telling them about the error and how they can fix it. 
-    * No
-      * Was the error a Moya error such as an error parsing the respone body? 
-      * Yes 
-        * Handle however you wish. I want to log this error as it's probably an error with the app. Then, return human reable message to the user.
-      * No 
-        * The error is unknown. Handle however you wish. I want to log this error as it's probably an error with the app. Then, return human reable message to the user.
-
-With all of the mobile apps I build and maintain, I copy/pasted this boilerplate code into each app and edited the code minimally to conform to the app I was building. This boilerplate code was hard to maintain across multiple apps, was a hard API to remember, error prone if I ever messed up a use case, and ugly. Because of this, I built this [Moya](https://github.com/Moya/Moya) plugin to allow me to have a quick, flexible, no boilerplate code solution for each of my apps. 
+When using Moya, if your app ever encounters an error such as no Internet connection, Moya gives you an `error.localizedDescription` such as "Status code does not fall into range". I don't want to show that error message to my users. I would rather tell them, "You do not have an Internet connection. Please connect then try again.". This is where Lucid was born. 
 
 # How? 
 
-* Create a class that inherits the `LucidMoyaResponseErrorProtocol` protocol. 
+* Create a class that inherits the `LucidErrorMessageProvider` protocol. 
 
 ```swift
-class MyLucidMoyaResponseErrorProtocol: LucidMoyaResponseErrorProtocol {
+class MyLucidErrorMessageProvider: LucidErrorMessageProvider {
     ...
 }
 ```
@@ -44,10 +26,10 @@ class MyLucidMoyaResponseErrorProtocol: LucidMoyaResponseErrorProtocol {
 * Set this class as the default error handler for all of your Moya endpoints:
 
 ```swift 
-LucidConfiguration.setDefaultErrorHandler(MyLucidMoyaResponseErrorProtocol())
+LucidConfiguration.setDefaultErrorHandler(MyLucidErrorMessageProvider())
 ```
 
-* Use your `MoyaProvider` as usual to call your endpoints. 
+* Use your `MoyaProvider` as usual to call your endpoints. When an error is encountered, the `String` that your `LucidErrorMessageProvider` returns will be put into the `error.localizedDescription` so you can feel comfortable showing it to your users.
 
 ## Installation
 

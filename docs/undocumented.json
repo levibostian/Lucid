@@ -1,6 +1,110 @@
 {
   "warnings": [
-
+    {
+      "file": "/Users/levibostian/code/Lucid/Source/Core/LucidConfiguration.swift",
+      "line": 13,
+      "symbol": "Singleton",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/Lucid/Source/Core/LucidConfiguration.swift",
+      "line": 13,
+      "symbol": "Singleton",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/Lucid/Source/Core/LucidConfiguration.swift",
+      "line": 13,
+      "symbol": "Singleton",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/Lucid/Source/Core/LucidConfiguration.swift",
+      "line": 15,
+      "symbol": "Singleton.errorHandler",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/Lucid/Source/Core/LucidConfiguration.swift",
+      "line": 15,
+      "symbol": "Singleton.errorHandler",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/Lucid/Source/Core/LucidConfiguration.swift",
+      "line": 15,
+      "symbol": "Singleton.errorHandler",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/Lucid/Source/Core/LucidConfiguration.swift",
+      "line": 17,
+      "symbol": "Singleton.sharedInstance",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/Lucid/Source/Core/LucidConfiguration.swift",
+      "line": 17,
+      "symbol": "Singleton.sharedInstance",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/Lucid/Source/Core/LucidConfiguration.swift",
+      "line": 17,
+      "symbol": "Singleton.sharedInstance",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/Lucid/Source/Core/LucidConfiguration.swift",
+      "line": 28,
+      "symbol": "LucidConfiguration.setDefaultErrorHandler(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/Lucid/Source/Core/LucidConfiguration.swift",
+      "line": 28,
+      "symbol": "LucidConfiguration.setDefaultErrorHandler(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/Lucid/Source/Core/LucidConfiguration.swift",
+      "line": 28,
+      "symbol": "LucidConfiguration.setDefaultErrorHandler(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/Lucid/Source/Core/LucidErrorMessageProvider.swift",
+      "line": 15,
+      "symbol": "LucidErrorMessageProvider.statusCodeError(_:request:response:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/Lucid/Source/Core/LucidErrorMessageProvider.swift",
+      "line": 15,
+      "symbol": "LucidErrorMessageProvider.statusCodeError(_:request:response:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/levibostian/code/Lucid/Source/Core/LucidErrorMessageProvider.swift",
+      "line": 15,
+      "symbol": "LucidErrorMessageProvider.statusCodeError(_:request:response:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
   ],
-  "source_directory": "/Users/levibostian/code/MoyaResponseHandlerPlugin"
+  "source_directory": "/Users/levibostian/code/Lucid"
 }

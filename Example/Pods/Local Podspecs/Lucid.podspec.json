@@ -26,7 +26,7 @@
       "source_files": "Source/Core/**/*.swift",
       "dependencies": {
         "Moya": [
-          "~> 8.0.5"
+          "~> 10.0.0"
         ]
       },
       "frameworks": "Foundation"
@@ -36,7 +36,7 @@
       "source_files": "Source/RxSwift/**/*.swift",
       "dependencies": {
         "Moya/RxSwift": [
-          "~> 8.0.5"
+          "~> 10.0.0"
         ],
         "Lucid/Core": [
 

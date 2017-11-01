@@ -10,11 +10,11 @@ import Foundation
 import Moya
 import Result
 
-internal class Singleton {
+public class Singleton {
     
-    internal var errorHandler: LucidMoyaResponseErrorProtocol?
+    public var errorHandler: LucidErrorMessageProvider?
     
-    static let sharedInstance = Singleton()
+    public static let sharedInstance = Singleton()
     
     private init() {
     }
@@ -25,7 +25,7 @@ internal class Singleton {
  */
 public class LucidConfiguration {
     
-    public class func setDefaultErrorHandler(_ errorHandler: LucidMoyaResponseErrorProtocol?) {
+    public class func setDefaultErrorHandler(_ errorHandler: LucidErrorMessageProvider?) {
         Singleton.sharedInstance.errorHandler = errorHandler
     }
     
