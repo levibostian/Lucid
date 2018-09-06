@@ -196,7 +196,6 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				C44D20BC8AAFD09AB0CE918B /* [CP] Embed Pods Frameworks */,
-				27A9EDF5C450A019AE24F206 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -216,7 +215,6 @@
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
 				1B03CC4B58D7D2F22AAE4419 /* [CP] Embed Pods Frameworks */,
-				7852D56F74FCB9B76B451B15 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -310,36 +308,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lucid_Tests/Pods-Lucid_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		27A9EDF5C450A019AE24F206 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lucid_Example/Pods-Lucid_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7852D56F74FCB9B76B451B15 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lucid_Tests/Pods-Lucid_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A70F200BBD27AC810D6AC802 /* [CP] Check Pods Manifest.lock */ = {
